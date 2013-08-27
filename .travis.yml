@@ -3,5 +3,6 @@ script:
   - |
     for TOOL in gcc clang make ninja;
     do
-      [ -f $(type -p $TOOL) ] && $TOOL --version || echo "$TOOL: not found";
+      echo "---------------------------------------------------------------------"
+      [ -f $(type -p $TOOL &>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
     done
