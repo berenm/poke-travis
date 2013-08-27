@@ -1,0 +1,7 @@
+language: cpp
+script:
+  - |
+    for TOOL in gcc clang make ninja;
+    do
+      [ -f $(type -p $TOOL) ] && $TOOL --version || echo "$TOOL: not found";
+    done
