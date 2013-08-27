@@ -1,4 +1,4 @@
-language: cpp
+language: objective-c
 script:
   - |
     for TOOL in gcc clang make ninja cmake;
