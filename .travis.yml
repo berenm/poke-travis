@@ -1,7 +1,7 @@
 language: cpp
 script:
   - |
-    for TOOL in gcc clang make ninja;
+    for TOOL in gcc clang make ninja cmake;
     do
       echo "---------------------------------------------------------------------"
       [ -f $(type -p $TOOL &>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
