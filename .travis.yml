@@ -6,3 +6,5 @@ script:
       echo "---------------------------------------------------------------------"
       [ -f $(type -p $TOOL &>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
     done
+before_install:
+  - sudo apt-get -qq install ninja-build
