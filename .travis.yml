@@ -19,3 +19,4 @@ before_install:
       cmake
       ninja-build
       libgl1-mesa-dev libegl1-mesa-dev libglu1-mesa-dev
+cache: apt
