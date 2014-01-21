@@ -15,7 +15,10 @@ before_install:
   - sudo aptitude -yq2 full-upgrade -t trusty python
   - sudo aptitude -yq2 install -t trusty
       g++
-      clang-3.4
+      clang-3.5
+      llvm-3.5
+      llvm-3.5-dev
+      lldb-3.5
       libboost1.54-all-dev
       cmake
       ninja-build
