@@ -4,8 +4,8 @@ script:
     for TOOL in gcc clang make ninja cmake;
     do
       echo "---------------------------------------------------------------------"
-      [ -f $(type -p $TOOL &>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
-      grep $(type -p $TOOL &>/dev/null) /var/lib/dpkg/info/*.list;
+      [ -f $(type -p $TOOL 2>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
+      grep $(type -p $TOOL 2>/dev/null) /var/lib/dpkg/info/*.list;
     done
 before_install:
   - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ trusty main universe"
