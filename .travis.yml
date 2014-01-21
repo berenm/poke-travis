@@ -4,6 +4,7 @@ script:
     for TOOL in gcc clang make ninja cmake;
     do
       echo "---------------------------------------------------------------------"
+      echo "Looking for $TOOL in $PATH: $(type -p $TOOL 2>/dev/null)"
       [ -f $(type -p $TOOL 2>/dev/null) ] && $TOOL --version || echo "$TOOL: not found";
       grep $(type -p $TOOL 2>/dev/null) /var/lib/dpkg/info/*.list;
     done
