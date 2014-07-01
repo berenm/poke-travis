@@ -1,3 +1,6 @@
+os:
+  - linux
+  - osx
 language: cpp
 script:
   - |
@@ -9,20 +12,32 @@ script:
       grep $(type -p $TOOL 2>/dev/null) /var/lib/dpkg/info/*.list;
     done
 before_install:
-  - sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ trusty main universe"
-  - sudo add-apt-repository -y "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main"
-  - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
-  - sudo apt-get -qq install aptitude; sudo aptitude -yq2 update
-  - sudo aptitude -yq2 full-upgrade -t trusty python
-  - sudo aptitude -yq2 install -t trusty
-      g++
-      clang-3.5
-      llvm-3.5
-      llvm-3.5-dev
-      lldb-3.5
-      libboost1.54-all-dev
-      cmake
-      ninja-build
-      libgl1-mesa-dev libegl1-mesa-dev libglu1-mesa-dev
-  - export PATH=/usr/bin:$PATH
+  - |
+    if [ ${TRAVIS_OS_NAME} = "linux" ]; then
+      sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ trusty main universe"
+      sudo add-apt-repository -y "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main"
+      wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+      sudo apt-get -qq update; sudo apt-get -qq install aptitude; sudo aptitude -yq2 update
+      sudo aptitude -yq2 full-upgrade -t trusty python
+      sudo aptitude -yq2 install -t trusty \
+        g++ \
+        clang-3.5 \
+        llvm-3.5 \
+        llvm-3.5-dev \
+        lldb-3.5 \
+        libboost1.54-all-dev \
+        cmake \
+        ninja-build \
+        libgl1-mesa-dev libegl1-mesa-dev libglu1-mesa-dev
+      export PATH=/usr/bin:$PATH
+    fi
+  - |
+    if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      brew update
+      brew upgrade
+      brew list
+      brew tap homebrew/versions
+      brew install ninja
+      brew install cmake
+    fi
 cache: apt
