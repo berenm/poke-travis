@@ -18,11 +18,10 @@ before_install:
   - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
   - sudo apt-get -qq update; sudo apt-get -qq install aptitude; sudo aptitude -yq2 update
-  - sudo aptitude -yq2 install -t utopic \
-      clang-3.6 \
-      g++-4.9 \
-      libboost1.54-all-dev \
-      cmake \
-      ninja-build \
-      libgl1-mesa-dev libegl1-mesa-dev libglu1-mesa-dev
+  - sudo aptitude -yq2 install -t utopic
+      clang-3.6
+      g++-4.9
+      libboost1.54-all-dev
+      cmake
+      ninja-build
 cache: apt
