@@ -22,7 +22,7 @@ before_install:
   - sudo aptitude -yq2 install -t utopic
       clang-3.6
       g++-4.9
-      libboost1.54-all-dev
+      libboost1.55-all-dev
       cmake
       ninja-build
 cache: apt
