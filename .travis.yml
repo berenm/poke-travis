@@ -1,7 +1,7 @@
 language: cpp
 script:
   - |
-    for TOOL in gcc clang make ninja cmake;
+    for TOOL in g++-4.9 clang-3.7 make ninja cmake;
     do
       echo "---------------------------------------------------------------------"
       echo "Looking for $TOOL in $PATH: $(type -p $TOOL 2>/dev/null)"
@@ -19,7 +19,6 @@ addons:
     - llvm-3.7-dev
     - g++-4.9
     - gcc-4.9
-    - libstdc++-4.9-dev
     - cmake
     - ninja-build
     - libgl1-mesa-dev
