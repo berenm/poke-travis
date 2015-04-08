@@ -1,9 +1,9 @@
 Travis-CI poking project
 ========================================
-.. image:: https://img.shields.io/travis/berenm/poke-travis/linux.png
+.. image:: https://img.shields.io/travis/berenm/poke-travis/linux.svg?style=flat-square
     :alt: Build status (linux branch)
     :target: https://travis-ci.org/berenm/poke-travis
-.. image:: https://img.shields.io/travis/berenm/poke-travis/macosx.png
+.. image:: https://img.shields.io/travis/berenm/poke-travis/macosx.svg?style=flat-square
     :alt: Build status (macosx branch)
     :target: https://travis-ci.org/berenm/poke-travis
 
